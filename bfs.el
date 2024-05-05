@@ -1614,7 +1614,7 @@ See `bfs-valid-layout-p' and `bfs-preview-matches-child-p'."
     (bfs-clean)
     (when (window-parameter (selected-window) 'window-side)
       (other-window 1))
-    (delete-other-windows))
+    )
    (t nil)))
 
 (defun bfs-clean-if-frame-deleted (_frame)
@@ -1666,6 +1666,7 @@ See: `bfs-state-before'."
 (defun bfs-quit ()
   "Leave `bfs-mode' and restore previous window configuration."
   (interactive)
+  (delete-other-windows)
   (bfs-clean)
   (jump-to-register :bfs))
 
